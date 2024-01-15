@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>To Shivi.</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./index.css">
+        <link rel="icon" href="./resource/shivi.jpeg">
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="start"><img class="start" src="./resource/koala1.png" alt="🐨" tabindex="0"></a>
+            <div class="secret_message" 
+            data-text="<p>To Shivi.</p>
+            <p><strong>Happy 20th Birthday!</strong></p>
+            <p>Keep smiling and ur doing great.</p>
+            <p>An another decade to ur 笑.</p>
+            <div align='right'><strong>- By Aadi</strong></div>">
+            i wonder if there's a secret message hidden here.
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+    </script>
+    <script>
+        var running = false;
+        function typeWriter(text, n) {
+            if (n < (text.length)) {
+                $('.secret_message').html(text.substring(0, n + 1) + "<img class='heart' src='./resource/heart.png' alt='❤'>");
+                n++;
+                setTimeout(function () {
+                    typeWriter(text, n)
+                }, 100);
+            }
+            else {
+                running = false;
+            }
+        }
+
+        $('.start').click(function (e) {
+            e.stopPropagation();
+            if (running == false) {
+                var text = $('.secret_message').data('text');
+                running = true;
+                typeWriter(text, 0);
+            }
+        });
+    </script>
+
+
+</body>
+</html>
+

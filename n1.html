@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Happy Birthday day!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+            
+            *{
+                text-decoration:underline;
+            }
+
+            body {
+                font-family:'Cutive Mono', serif;
+                background-color:burlywood; 
+                color: rgb(43, 50, 71);
+            }
+
+            html{
+                padding: 1rem;
+                
+            }
+    
+            a {
+                color: #222;
+            }
+    
+            .wrap {
+                width: 100%;
+                text-align: center;
+            }
+    
+            .secret_message {
+                margin-top: 1rem;
+                text-align: left;
+                font-size: 1.2rem;
+                line-height: 1.7rem;       
+            }
+
+            .start{
+                width: 3rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .start img{
+                border-style: solid;
+                border-radius: 1rem;
+                box-shadow: 5px 5px 0px rgb(209, 4, 100);
+                animation: myslide2;
+                animation-duration: 2.5s;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes myslide2{
+                50%{box-shadow: 0px 0px 0px rgb(209, 4, 100);}
+            }
+
+            .start img:focus{
+                animation: myslide3; /*use tabindex="0" attribute in css to focus on img. focus used to change state onclick.*/
+                box-shadow: 5px 5px 0px rgb(78, 44, 0);
+            }
+
+            li{
+            list-style-type:japanese-formal;
+            padding: 1rem;
+            }
+
+            section{
+                margin: 1rem;
+                padding: 0.5rem;
+                background-color: burlywood;
+                border-style: solid;
+                border-radius: 1rem;
+                box-shadow: 10px 10px 0px rgb(78, 44, 0);
+            }
+
+            .note p{
+                font-style: italic;
+                font-weight: bold;
+                color: rgba(61, 28, 15, 0.993);
+            }
+
+            ::-webkit-scrollbar{
+                width: 1rem;
+            }
+            ::-webkit-scrollbar-track{
+                background-color: burlywood;
+            }
+            ::-webkit-scrollbar-thumb{
+                background-color: rgb(235, 177, 101);
+                border-style: solid;
+            }
+
+            .heart{
+                width: 1.5rem;
+            }
+
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="start"><img class="start" src="./resource/letter.png" alt="✉" tabindex="0"></a>
+            <div class="secret_message" 
+            data-text="<p>For the most intriguing person i ever met,</p>
+            <center><strong>Happy 20th Birthday!</strong></center>
+            <p>A year passed and it was such fun hanging out with u,</p>
+            <ul>
+                <li>playing uno, scribble.</li>
+                <li>watching anime movies.</li>
+                <li>studying together, solving doubts and making fun of anything n everything in class.</li>
+                <li>shit talking about politics in current times with u became a therapy session.</li>
+                <li>Dark jokes with u turns darker together.</li>
+                <li> and discussing 200iq psychology, yt documentary or life experience stuff.</li>
+            </ul>
+            <br>
+            <p>It too was in these times i connected with another side of u.</p>
+            <p>It felt confusing at first, but introducing me to this side of the world helped me mature a lot and develop more empathy.</p>
+            <p>I feel joy that i can sense better and be more kind to people around me, knowing there might be some hidden struggles behind closed doors.</p>
+            <br>
+            <p>There are more stuff left for me to understand over time, but no doubt my admiration for ur composure and overall interest in u grew more.<strong> Like a mystery book to read.</strong></p>
+            <section class='note'>
+                <p>if it helps i just want to let u know,</p>
+                <p>i respect how u have developed as a person.</p>
+                <p>thinking that makes all my everyday fears and obstacles doable.</p>
+                <p>for this, u have been a great ally in my college life.</p>
+            </section>
+            <p>My time with u really went like an anime style plot till now and i hope to see more of u.</p>
+            <br>
+            <p>So, Congratulations on successfully orbiting the Sun once again in approximately 365.25 days. </p>
+            <p>wish that ur 20s are full of new experience, laughter, growth and success.</p>
+            <p>As u continue in ur 20s, some days might be good, some not so good...but there will always be a capacity to experience joy again.</p>
+            <p>Continue moving forward, meet with new people and their stories. And most importantly - </p>
+            <br>
+            Enjoy ur special years to come with a 笑 😃.
+            <div align='right'><strong>- By Aadi</strong></div>"
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        
+    </script>
+    <script>
+        var running = false;
+        function typeWriter(text, n) {
+            if (n < (text.length)) {
+                $('.secret_message').html(text.substring(0, n + 1) + "<img class='heart' src='./resource/heart.png' alt='❤'>");
+                n++;
+                setTimeout(function () {
+                    typeWriter(text, n)
+                }, 80);
+            }
+            else {
+                running = false;
+            }
+        }
+
+        $('.start').click(function (e) {
+            e.stopPropagation();
+            if (running == false) {
+                var text = $('.secret_message').data('text');
+                running = true;
+                typeWriter(text, 0);
+            }
+        });
+    </script>
+
+
+</body>
+</html>
+
